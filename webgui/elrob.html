@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="resources/107-systems-logo.png" type="image/png">
+        <title>
+            L3X-Z	Dashboard
+        </title>
+
+        <link rel="stylesheet" href="elrob.css">
+        <script src = "javascript/download.min.js" type = "text/javascript"></script>
+        <script src = "javascript/plotly-latest.min.js" type = "text/javascript"></script>
+        <script src = "javascript/jquery.js" type = "text/javascript"></script>
+        <script src = "javascript/robotparameters.js" type = "text/javascript"></script>
+        <script src = "javascript/frontend_elrob.js" type = "text/javascript"></script>
+        <script src = "javascript/eventemitter.js" type = "text/javascript"></script>
+        <script src = "javascript/roslib.js" type = "text/javascript"></script>
+        <script src = "javascript/rosinterface.js" type = "text/javascript"></script>
+        <script src = "javascript/logger.js" type = "text/javascript"></script>
+        <script src = "javascript/visualizer.js" type = "text/javascript"></script>
+        <script src = "javascript/topics.js" type = "text/javascript"></script>
+        <script src = "javascript/joydrive.js" type = "text/javascript"></script>
+        <script src = "javascript/emergencystop.js" type = "text/javascript"></script>
+        <script src = "javascript/startup.js" type = "text/javascript"></script>
+        <script language="javascript" type = "text/javascript">
+            initElrob(); 
+        </script>
+    </head>
+    <body>
+        <div id="div_screen1" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen1" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen2" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen2" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen3" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen3" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen4" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen4" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen5" style = "width: 675px; height: 675px">
+            <canvas id="canvas_screen5" width="675" height="675"></canvas>
+        </div>
+
+        <button id="button_up" class="css_squarebutton" onclick="button_up_onclick()">+</button>
+        <button id="button_down" class="css_squarebutton" onclick="button_down_onclick()">-</button>
+       	<button id="button_emstop" class="css_squarebutton" onclick="button_emstop_onclick()">STOP</button>
+        <button id="button_left" class="css_squarebutton" onclick="button_left_onclick()"><</button>
+        <button id="button_right" class="css_squarebutton" onclick="button_right_onclick()">></button>
+      	<button id="button_download" class="css_rectbuttonsmall" onclick="button_download_onclick()">Download</button>
+        <div id="lighting">
+          <input type="checkbox" class="css_checkbox" id="thermal_red" onclick="thermal_lighting_onclick()"/>
+          <label for="thermal_red">Thermal_RED</label><br>
+          <input type="checkbox" class="css_checkbox" id="thermal_green" onclick="thermal_lighting_onclick()"/>
+          <label for="thermal_green">Thermal_GREEN</label><br>
+          <input type="checkbox" class="css_checkbox" id="thermal_blue" onclick="thermal_lighting_onclick()"/>
+          <label for="thermal_blue">Thermal_BLUE</label><br>
+          <input type="checkbox" class="css_checkbox" id="thermal_ir" onclick="thermal_lighting_onclick()"/>
+          <label for="thermal_ir">Thermal_IR</label><br>
+          <input type="checkbox" class="css_checkbox" id="rgb_red" onclick="rgb_lighting_onclick()"/>
+          <label for="rgb_red">RGB_RED</label><br>
+          <input type="checkbox" class="css_checkbox" id="rgb_green" onclick="rgb_lighting_onclick()"/>
+          <label for="rgb_green">RGB_GREEN</label><br>
+          <input type="checkbox" class="css_checkbox" id="rgb_blue" onclick="rgb_lighting_onclick()"/>
+          <label for="rgb_blue">RGB_BLUE</label><br>
+          <input type="checkbox" class="css_checkbox" id="rgb_ir" onclick="rgb_lighting_onclick()"/>
+          <label for="rgb_ir">RGB_IR</label><br>
+        </div>
+        <select id="select_tag" class="css_select">
+                <option value="thermal">THERMAL</option>
+                <option value="radiation">RADIATION</option>
+        </select>
+      	<button id="button_log" class="css_rectbuttonsmall" onclick="button_log_onclick()">log waypoint</button>
+	<input id="input_startlat" class="css_input">
+	<output id="output_startlat" class="css_output">Lat</output>
+	<input id="input_startlon" class="css_input">
+	<output id="output_startlon" class="css_output">Lon</output>
+	<input id="input_startbearing" class="css_input">
+	<output id="output_startbearing" class="css_output">°</output>
+      	<button id="button_startlog" class="css_rectbuttonsmall" onclick="button_startlog_onclick()">set startpoint</button>
+    </body>
+</html>
