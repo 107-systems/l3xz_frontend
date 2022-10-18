@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="icon" href="resources/107-systems-logo.png" type="image/png">
+    <script src="javascript/joy.js"></script>
+    <title>
+      L3X-Z	Dashboard
+    </title>
+  </head>
+  <body>
+    <div id="headstick" style="height:130px; width:130px;margin:5px"></div>
+    <div id="steerstick" style="height:130px; width:130px;margin:5px"></div>
+    <input type="submit" value="submit" style="margin: 5px">
+    <div class="container" style="position: absolute; left: 160px; top: 0px">
+        <div class="row">
+          <div class="four columns">
+            <div class="row">
+              <canvas id="canvas_screen1" width="300" height="150" style="max-width: 100%; border: 3px solid black"></canvas>
+            </div>
+            <div class="row">
+              <canvas id="canvas_screen1" width="300" height="150" style="max-width: 100%; border: 3px solid black"></canvas>
+            </div>
+            <div class="row">
+              <canvas id="canvas_screen1" width="300" height="150" style="max-width: 100%; border: 3px solid black"></canvas>
+            </div>
+            <div class="row">
+              <canvas id="canvas_screen1" width="300" height="150" style="max-width: 100%; border: 3px solid black"></canvas>
+            </div>
+          </div>
+          <div class="seven columns">
+            <div class="row">
+              <canvas id="canvas_screen1" width="800" height="800" style="max-width: 100%; border: 3px solid black"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+              parameters={title: "control", internalFillColor: "#FF0000", internalStrokeColor: "#008000", internalLineWidth: 3, externalLineWidth: 3,  externalStrokeColor: "#000000", autoReturnToCenter: false, width: 130, height: 130}
+              var joysteer = new JoyStick('steerstick', parameters);
+              parameters={title: "head", internalFillColor: "#FF0000", internalStrokeColor: "#008000", internalLineWidth: 3, externalLineWidth: 3,  externalStrokeColor: "#000000", autoReturnToCenter: false, width: 130, height: 130}
+              var joyhead = new JoyStick('headstick', parameters);
+      </script>
+    </body>
+</html>
