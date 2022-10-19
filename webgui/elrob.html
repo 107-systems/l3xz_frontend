@@ -8,6 +8,7 @@
             L3X-Z	Dashboard
         </title>
 
+        <link rel="stylesheet" href="general.css">
         <link rel="stylesheet" href="elrob.css">
         <script src = "javascript/download.min.js" type = "text/javascript"></script>
         <script src = "javascript/plotly-latest.min.js" type = "text/javascript"></script>
@@ -21,6 +22,7 @@
         <script src = "javascript/visualizer.js" type = "text/javascript"></script>
         <script src = "javascript/topics.js" type = "text/javascript"></script>
         <script src = "javascript/joydrive.js" type = "text/javascript"></script>
+        <script src = "javascript/joy.js" type = "text/javascript"></script>
         <script src = "javascript/emergencystop.js" type = "text/javascript"></script>
         <script src = "javascript/startup.js" type = "text/javascript"></script>
         <script language="javascript" type = "text/javascript">
@@ -47,12 +49,14 @@
         <div id="div_screen5" style = "width: 675px; height: 675px">
             <canvas id="canvas_screen5" width="675" height="675"></canvas>
         </div>
-
-        <button id="button_up" class="css_squarebutton" onclick="button_up_onclick()">+</button>
+        <div id="headstick" style="height:110px; width:110px;"></div>
+        <div id="steerstick" style="height:110px; width:110px;"></div>
+       	<button id="button_emstop" class="css_rectbutton" onclick="button_emstop_onclick()">STOP</button>
+        <!--button id="button_up" class="css_squarebutton" onclick="button_up_onclick()">+</button>
         <button id="button_down" class="css_squarebutton" onclick="button_down_onclick()">-</button>
        	<button id="button_emstop" class="css_squarebutton" onclick="button_emstop_onclick()">STOP</button>
         <button id="button_left" class="css_squarebutton" onclick="button_left_onclick()"><</button>
-        <button id="button_right" class="css_squarebutton" onclick="button_right_onclick()">></button>
+        <button id="button_right" class="css_squarebutton" onclick="button_right_onclick()">></button-->
       	<button id="button_download" class="css_rectbuttonsmall" onclick="button_download_onclick()">Download</button>
         <div id="lighting">
           <input type="checkbox" class="css_checkbox" id="thermal_red" onclick="thermal_lighting_onclick()"/>
@@ -84,5 +88,27 @@
 	<input id="input_startbearing" class="css_input">
 	<output id="output_startbearing" class="css_output">°</output>
       	<button id="button_startlog" class="css_rectbuttonsmall" onclick="button_startlog_onclick()">set startpoint</button>
+        <script language="javascript" type = "text/javascript">
+    parameters = {
+        title: "control",
+        internalFillColor: "#FF0000",
+        internalStrokeColor: "#008000",
+        internalLineWidth: 3,
+        externalLineWidth: 3,
+        externalStrokeColor: "#000000",
+        autoReturnToCenter: false,
+    }
+    joysteer = new JoyStick('steerstick', parameters);
+    parameters = {
+        title: "head",
+        internalFillColor: "#FF0000",
+        internalStrokeColor: "#008000",
+        internalLineWidth: 3,
+        externalLineWidth: 3,
+        externalStrokeColor: "#000000",
+        autoReturnToCenter: false,
+    }
+    joyhead = new JoyStick('headstick', parameters);
+        </script>
     </body>
 </html>

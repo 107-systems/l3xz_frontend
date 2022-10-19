@@ -10,6 +10,12 @@ body
     -webkit-transform-origin: 0 0;
 }
 
+.css_checkbox
+{
+  border-radius:10px;
+  background-color: whitesmoke;
+}
+
 .css_squarebutton
 {
     height: 80px;
@@ -110,33 +116,4 @@ body
     text-align: left;
     font-weight: bold;
     font-size: 14px;
-}
-
-#div_screen
-{
-    position: absolute;
-    top: 65px;
-    left: 0px;
-    overflow-x: "scroll";
-    overflow-y: "scroll";
-}
-
-#canvas_screen 
-{
-	position: absolute;
-	border: 5px solid black;
-}
-
-#select_topic
-{
-    position: absolute;
-    top: 25px;
-    left: 0px;
-}
-
-#button_download
-{
-    position: absolute;
-    top: 25px;
-    left: 250px;
 }

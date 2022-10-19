@@ -186,17 +186,8 @@ var JoyStick = (function(container, parameters, callback)
         {
             movedX = event.targetTouches[0].pageX;
             movedY = event.targetTouches[0].pageY;
-            // Manage offset
-            if(canvas.offsetParent.tagName.toUpperCase() === "BODY")
-            {
-                movedX -= canvas.offsetLeft;
-                movedY -= canvas.offsetTop;
-            }
-            else
-            {
-                movedX -= canvas.offsetParent.offsetLeft;
-                movedY -= canvas.offsetParent.offsetTop;
-            }
+            movedX = event.offsetX - context.getTransform().e;
+            movedY = event.offsetY - context.getTransform().f;
             // Delete canvas
             context.clearRect(0, 0, canvas.width, canvas.height);
             // Redraw object
@@ -250,19 +241,8 @@ var JoyStick = (function(container, parameters, callback)
     {
         if(pressed === 1)
         {
-            movedX = event.pageX;
-            movedY = event.pageY;
-            // Manage offset
-            if(canvas.offsetParent.tagName.toUpperCase() === "BODY")
-            {
-                movedX -= canvas.offsetLeft;
-                movedY -= canvas.offsetTop;
-            }
-            else
-            {
-                movedX -= canvas.offsetParent.offsetLeft;
-                movedY -= canvas.offsetParent.offsetTop;
-            }
+            movedX = event.offsetX - context.getTransform().e;
+            movedY = event.offsetY - context.getTransform().f;
             // Delete canvas
             context.clearRect(0, 0, canvas.width, canvas.height);
             // Redraw object
