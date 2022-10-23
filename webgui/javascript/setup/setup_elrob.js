@@ -1,33 +1,3 @@
-function autoscale() {
-    scale(2000, 1000)
-};
-
-function autoscale2() {
-    scale(3000, 2000)
-};
-
-function scale(facX, facY) {
-    ratioW = window.innerWidth / facX;
-    ratioH = window.innerHeight / facY;
-    ratio = 2 * Math.min(ratioH, ratioW);
-    $('body').css('-moz-transform', 'scale(' + ratio + ')');
-    $('body').css('-o-transform', 'scale(' + ratio + ')');
-    $('body').css('-webkit-transform', 'scale(' + ratio + ')');
-    $('body').css('transform', 'scale(' + ratio + ')');
-    console.log("autoscale")
-}
-
-var visualizer = new Visualizer("div_screen", "canvas_screen");
-var topicsManager = new TopicsManager(visualizer, true);
-
-function init() {
-    //    autoscale();
-    getTopics(topicsManager);
-    //    window.onresize = autoscale;
-    document.addEventListener('DOMContentLoaded', init, false);
-    prepareJoydrive(true);
-}
-
 var vis1;
 var vis2;
 var vis3;
@@ -35,6 +5,10 @@ var vis4;
 var vis5;
 var joyhead;
 var joyvis;
+
+function autoscaleElrob() {
+    scale(3000, 2000)
+};
 
 function initElrob() {
     vis1 = new Visualizer("div_road", "canvas_screen1");
@@ -90,7 +64,7 @@ function initElrob() {
             topicsManager4.subscribeTopics(subscribed4);
             topicsManager5.subscribeTopics(subscribed5);
             vis5.enableMap(true);
-            window.onresize = autoscale2
+            window.onresize = autoscaleElrob
         }, 2000)
     }
     document.addEventListener('DOMContentLoaded', init, false);
