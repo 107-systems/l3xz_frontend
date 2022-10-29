@@ -6,6 +6,7 @@ class Visualizer {
         this.context = null;
         this.width = 0;
         this.height = 0;
+        this.update = false;
 
         this.downloadData = null;
         this.downloadMIME = null;
@@ -25,6 +26,7 @@ class Visualizer {
             'yaw': 0
         });
         this.odometry = new Map(this.origin);
+
     }
 
     connectCanvas() {
@@ -68,9 +70,10 @@ class Visualizer {
         return this.messages.keys();
     }
 
-    updateMessage(name, message, type) {
+    updateMessage(name, type, message) {
         if (this.messages.has(name)) {
-            this.messages.set(messageName, {
+            this.update = true;
+            this.messages.set(name, {
                 'data': message,
                 'type': type
             });
@@ -101,8 +104,34 @@ class Visualizer {
         }
     }
 
+    show(name, type, message) {
+        this.showIdle();
+    }
+
     render() {
-       this.connectCanvas(); 
-       this.showIdle();
+        console.log(this.update);
+        if (this.update) {
+            this.update = false;
+
+            this.connectCanvas();
+            this.clearCanvas();
+            this.showCanvas(true);
+            console.log(this.messages);
+            console.log(renderers);
+            for (let name of this.messages.keys()) {
+                const payload = this.messages.get(name);
+                for (let rs = 0; rs < renderers.length; rs++) {
+                    let all = renderers[rs];
+                    console.log(all);
+                    for (let r = 0; r < all.length; r++) {
+                        let current = all[r]
+                        console.log(current);
+                        if (current(name, payload.type, payload.data, this)) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

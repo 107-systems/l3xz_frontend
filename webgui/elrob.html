@@ -10,24 +10,33 @@
 
         <link rel="stylesheet" href="general.css">
         <link rel="stylesheet" href="elrob.css">
-        <script src = "javascript/download.min.js" type = "text/javascript"></script>
-        <script src = "javascript/plotly-latest.min.js" type = "text/javascript"></script>
-        <script src = "javascript/jquery.js" type = "text/javascript"></script>
-        <script src = "javascript/robotparameters.js" type = "text/javascript"></script>
-        <script src = "javascript/frontend_elrob.js" type = "text/javascript"></script>
-        <script src = "javascript/eventemitter.js" type = "text/javascript"></script>
-        <script src = "javascript/roslib.js" type = "text/javascript"></script>
-        <script src = "javascript/rosinterface.js" type = "text/javascript"></script>
-        <script src = "javascript/logger.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer.js" type = "text/javascript"></script>
-        <script src = "javascript/topics.js" type = "text/javascript"></script>
-        <script src = "javascript/joydrive.js" type = "text/javascript"></script>
-        <script src = "javascript/joy.js" type = "text/javascript"></script>
-        <script src = "javascript/emergencystop.js" type = "text/javascript"></script>
-        <script src = "javascript/startup.js" type = "text/javascript"></script>
-        <script language="javascript" type = "text/javascript">
-            initElrob(); 
-        </script>
+       
+        <script src = "javascript/3rdparty/download.min.js" type = "text/javascript"></script>
+        <script src = "javascript/3rdparty/eventemitter.js" type = "text/javascript"></script>
+        <script src = "javascript/3rdparty/joystick.js" type = "text/javascript"></script>
+        <script src = "javascript/3rdparty/jquery.js" type = "text/javascript"></script>
+        <script src = "javascript/3rdparty/plotly-latest.min.js" type = "text/javascript"></script>
+        <script src = "javascript/3rdparty/roslib.js" type = "text/javascript"></script>
+
+        <script src = "javascript/frontend/frontend_elrob.js" type = "text/javascript"></script>
+        
+        <script src = "javascript/rosinterface/rosinterface.js" type = "text/javascript"></script>
+        <script src = "javascript/rosinterface/topics.js" type = "text/javascript"></script>
+        
+        <script src = "javascript/util/emergencystop.js" type = "text/javascript"></script>
+        <script src = "javascript/util/geoUtils.js" type = "text/javascript"></script>
+        <script src = "javascript/util/joydrive.js" type = "text/javascript"></script>
+        <script src = "javascript/util/logger.js" type = "text/javascript"></script>
+        <script src = "javascript/util/scale.js" type = "text/javascript"></script>
+
+        <script src = "javascript/visualizer/base/visualizer-base.js" type = "text/javascript"></script>
+        <script src = "javascript/visualizer/renderers/sensor-msgs/laserscan.js" type = "text/javascript"></script>
+        <script src = "javascript/visualizer/renderers/sensor-msgs/map.js" type = "text/javascript"></script>
+        <script src = "javascript/visualizer/renderers/maps.js" type = "text/javascript"></script>
+
+        <script src = "javascript/setup/robotparameters.js" type = "text/javascript"></script>
+        <script src = "javascript/setup/setup_elrob.js" type = "text/javascript"></script>
+
     </head>
     <body>
         <div id="div_screen1" style = "width: 300px; height: 150px">
@@ -109,6 +118,7 @@
         autoReturnToCenter: false,
     }
     joyhead = new JoyStick('headstick', parameters);
+            initElrob(); 
         </script>
     </body>
 </html>
