@@ -11,8 +11,8 @@ function autoscaleElrob() {
 };
 
 function initElrob() {
-    vis1 = new Visualizer("div_screen1", "canvas_screen1");
-    vis1.insertMessage("/road_detector/road_lidar");
+    vis1 = new Visualizer("div_screen5", "canvas_screen5");
+    vis1.insertMessage("/cmd_vel");
     let topicsManager1 = new TopicsManager(false);
     topicsManager1.appendVisualizer(vis1);
 /*    vis2 = new Visualizer("div_filter", "canvas_screen2");
@@ -43,7 +43,7 @@ function initElrob() {
                 for (k in current) {
                     let topic = current[k];
                     console.log(topic);
-                    if ("/road_detector/road_lidar" == topic[1]) {
+                    if ("/cmd_vel" == topic[1]) {
                         subscribed1.push(topic[0]);
                     }
  /*                   if ("/l3xz/openmv_rgb/image_color_compressed" == topic[1]) {
