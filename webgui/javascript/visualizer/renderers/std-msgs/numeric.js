@@ -1,5 +1,4 @@
 function render_std_msgs_Numeric(name, type, message, visualizer) {
-    console.log(type);
     if ("std_msgs/Int8" == type ||
     "std_msgs/Int16" == type ||
     "std_msgs/Int32" == type ||

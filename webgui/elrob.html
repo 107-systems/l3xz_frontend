@@ -11,42 +11,7 @@
         <link rel="stylesheet" href="general.css">
         <link rel="stylesheet" href="elrob.css">
        
-        <script src = "javascript/3rdparty/download.min.js" type = "text/javascript"></script>
-        <script src = "javascript/3rdparty/eventemitter.js" type = "text/javascript"></script>
-        <script src = "javascript/3rdparty/joystick.js" type = "text/javascript"></script>
-        <script src = "javascript/3rdparty/jquery.js" type = "text/javascript"></script>
-        <script src = "javascript/3rdparty/plotly-latest.min.js" type = "text/javascript"></script>
-        <script src = "javascript/3rdparty/roslib.js" type = "text/javascript"></script>
-
-        <script src = "javascript/frontend/frontend_elrob.js" type = "text/javascript"></script>
-        
-        <script src = "javascript/rosinterface/rosinterface.js" type = "text/javascript"></script>
-        <script src = "javascript/rosinterface/topics.js" type = "text/javascript"></script>
-        
-        <script src = "javascript/util/emergencystop.js" type = "text/javascript"></script>
-        <script src = "javascript/util/geoUtils.js" type = "text/javascript"></script>
-        <script src = "javascript/util/joydrive.js" type = "text/javascript"></script>
-        <script src = "javascript/util/logger.js" type = "text/javascript"></script>
-        <script src = "javascript/util/scale.js" type = "text/javascript"></script>
-
-        <script src = "javascript/visualizer/base/visualizer-base.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/sensor-msgs/laserscan.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/sensor-msgs/compressedimage.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/sensor-msgs/navsatfix.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/sensor-msgs/map.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/diagnostic-msgs/diagnosticstatus.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/diagnostic-msgs/map.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/std-msgs/numeric.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/std-msgs/map.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/nav-msgs/odometry.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/nav-msgs/occupancygrid.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/nav-msgs/map.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/geometry-msgs/twist.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/geometry-msgs/map.js" type = "text/javascript"></script>
-        <script src = "javascript/visualizer/renderers/maps.js" type = "text/javascript"></script>
-
         <script src = "javascript/setup/setup_elrob.js" type = "text/javascript"></script>
-
     </head>
     <body>
         <div id="div_screen1" style = "width: 300px; height: 150px">
@@ -69,7 +34,7 @@
             <canvas id="canvas_screen5" width="675" height="675"></canvas>
         </div>
         <div id="headstick" style="height:110px; width:110px;"></div>
-        <div id="steerstick" style="height:110px; width:110px;"></div>
+        <div id="legstick" style="height:110px; width:110px;"></div>
        	<button id="button_emstop" class="css_rectbutton" onclick="button_emstop_onclick()">STOP</button>
       	<button id="button_download" class="css_rectbuttonsmall" onclick="button_download_onclick()">Download</button>
         <div id="lighting">

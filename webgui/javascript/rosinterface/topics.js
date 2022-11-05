@@ -26,10 +26,7 @@ class Topic {
         this.subscribed = true;
         let vis = this.visualizers;
         this.listener.subscribe(function(message) {
-            console.log(name);
             for (let v = 0; v < vis.length; v++) {
-                console.log(v);
-                console.log(vis[v].canvas);
                 vis[v].updateMessage(name, type, message);
             }
         });
@@ -111,10 +108,8 @@ class TopicsManager {
             let current = topics[i];
             for (let k in current) {
                 let topic = current[k];
-                console.log(topic);
                 for (let v = 0; v < this.visualizers.length; v++) {
                     let required = this.visualizers[v].getRequiredMessages();
-                     console.log(required);
                     if (required.includes(topic[1])) {
                         if (!subscribed.includes(topic[0])) {
                                 subscribed.push(topic[0]);

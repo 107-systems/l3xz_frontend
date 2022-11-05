@@ -103,7 +103,6 @@ class Visualizer {
 
     download() {
         if (null != this.downloadData) {
-            console.log(this.downloadData);
             download(this.downloadData, this.downloadName, this.downloadMIME);
         }
     }
@@ -113,23 +112,18 @@ class Visualizer {
     }
 
     render() {
-        console.log(this.update);
         if (this.update) {
             this.update = false;
 
             this.connectCanvas();
             this.clearCanvas();
             this.showCanvas(true);
-            console.log(this.messages);
-            console.log(renderers);
             for (let name of this.messages.keys()) {
                 const payload = this.messages.get(name);
                 for (let rs = 0; rs < renderers.length; rs++) {
                     let all = renderers[rs];
-                    console.log(all);
                     for (let r = 0; r < all.length; r++) {
                         let current = all[r]
-                        console.log(current);
                         if (current(name, payload.type, payload.data, this)) {
                             break;
                         }
