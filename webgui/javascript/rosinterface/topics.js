@@ -26,8 +26,10 @@ class Topic {
         this.subscribed = true;
         let vis = this.visualizers;
         this.listener.subscribe(function(message) {
+            console.log(name);
             for (let v = 0; v < vis.length; v++) {
-
+                console.log(v);
+                console.log(vis[v].canvas);
                 vis[v].updateMessage(name, type, message);
             }
         });
@@ -47,11 +49,11 @@ class TopicsManager {
         this.update = update;
     }
 
-    appendVisualizer (vis) {
+    appendVisualizer(vis) {
         this.visualizers.push(vis);
     }
-    
-        updateTopics(nameAndTypeList2d) {
+
+    updateTopics(nameAndTypeList2d) {
         this.topics = [];
         for (let i in nameAndTypeList2d.topics) {
             this.topics[i] = new Topic(nameAndTypeList2d.topics[i], nameAndTypeList2d.types[i], this.visualizers);
@@ -96,9 +98,31 @@ class TopicsManager {
 
     subscribeTopics(listIndices) {
         this.unsubscribeAll();
-        for (i in listIndices) {
+        for (let i in listIndices) {
             this.currentTopic = listIndices[i];
             this.topics[listIndices[i]].subscribe();
         }
     }
-}
+
+    subscribeRequiredTopics() {
+        let topics = this.getAllTopicDescriptions();
+        let subscribed = [];
+        for (let i in topics) {
+            let current = topics[i];
+            for (let k in current) {
+                let topic = current[k];
+                console.log(topic);
+                for (let v = 0; v < this.visualizers.length; v++) {
+                    let required = this.visualizers[v].getRequiredMessages();
+                     console.log(required);
+                    if (required.includes(topic[1])) {
+                        if (!subscribed.includes(topic[0])) {
+                                subscribed.push(topic[0]);
+                            }
+                        }
+                    }
+                }
+            }
+            this.subscribeTopics(subscribed);
+        }
+    }

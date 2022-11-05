@@ -1,8 +1,14 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr
+****************************************************************/
 var vis1;
 var vis2;
 var vis3;
 var vis4;
 var vis5;
+var topicsManager;
 var joyhead;
 var joyvis;
 
@@ -11,70 +17,49 @@ function autoscaleElrob() {
 };
 
 function initElrob() {
-    vis1 = new Visualizer("div_screen5", "canvas_screen5");
-    vis1.insertMessage("/cmd_vel");
-    let topicsManager1 = new TopicsManager(false);
-    topicsManager1.appendVisualizer(vis1);
-/*    vis2 = new Visualizer("div_filter", "canvas_screen2");
-    var topicsManager2 = new TopicsManager(vis2, false);
-    vis3 = new Visualizer("div_global", "canvas_screen3");
-    var topicsManager3 = new TopicsManager(vis3, false);
-    vis4 = new Visualizer("div_local", "canvas_screen4");
-    var topicsManager4 = new TopicsManager(vis4, false);
-    vis5 = new Visualizer("div_local", "canvas_screen5");
-    var topicsManager5 = new TopicsManager(vis5, false);*/
-    getTopics(topicsManager1);
-/*    getTopics(topicsManager2);
-    getTopics(topicsManager3);
-    getTopics(topicsManager4);
-    getTopics(topicsManager5);
-*/
-    let subscribed1 = [];
-/*    var subscribed2 = [];
-    var subscribed3 = [];
-    var subscribed4 = [];
-    var subscribed5 = [];
-*/
- //   function init() {
-        setTimeout(function() {
-            var topics = topicsManager1.getAllTopicDescriptions();
-            for (i in topics) {
-                let current = topics[i];
-                for (k in current) {
-                    let topic = current[k];
-                    console.log(topic);
-                    if ("/cmd_vel" == topic[1]) {
-                        subscribed1.push(topic[0]);
-                    }
- /*                   if ("/l3xz/openmv_rgb/image_color_compressed" == topic[1]) {
-                        subscribed2.push(topic[0]);
-                    }
-                    if ("/camera/depth/image_rect_raw/compressed" == topic[1]) {
-                        subscribed3.push(topic[0]);
-                    }
-                    if ("/camera/color/image_raw/compressed" == topic[1]) {
-                        subscribed4.push(topic[0]);
-                    }
-                    if ("/rtabmap/grid_map" == topic[1] || "/odom_slam" == topic[1]) {
-                        subscribed5.push(topic[0]);
-                    }
- */               }
-            }
-            console.log(subscribed1);
-            topicsManager1.subscribeTopics(subscribed1);
-/*            topicsManager2.subscribeTopics(subscribed2);
-            topicsManager3.subscribeTopics(subscribed3);
-            topicsManager4.subscribeTopics(subscribed4);
-            topicsManager5.subscribeTopics(subscribed5);
-            vis5.enableMap(true);
- */     
+    let parameters = {
+        title: "control",
+        internalFillColor: "#FF0000",
+        internalStrokeColor: "#008000",
+        internalLineWidth: 3,
+        externalLineWidth: 3,
+        externalStrokeColor: "#000000",
+        autoReturnToCenter: false,
+    }
+    joysteer = new JoyStick('steerstick', parameters);
+    parameters.title = "head";
+    joyhead = new JoyStick('headstick', parameters);
+    
+    topicsManager = new TopicsManager(false);
+    vis1 = new Visualizer("div_screen1", "canvas_screen1");
+    vis2 = new Visualizer("div_screen2", "canvas_screen2");
+    vis3 = new Visualizer("div_screen3", "canvas_screen3");
+    vis4 = new Visualizer("div_screen4", "canvas_screen4");
+    vis5 = new Visualizer("div_screen5", "canvas_screen5");
+    vis1.insertMessage("/road_detector/road_lidar");
+    vis2.insertMessage("/road_detector/roaddetector/out/compressed");
+    vis3.insertMessage("/road_detector/roaddetector/way/compressed");
+    vis4.insertMessage("/grid_planner/planner/out/compressed");
+    vis5.insertMessage("/rtabmap/grid_map");
+
+    topicsManager = new TopicsManager(false);
+    topicsManager.appendVisualizer(vis1);
+    topicsManager.appendVisualizer(vis2);
+    topicsManager.appendVisualizer(vis3);
+    topicsManager.appendVisualizer(vis4);
+    topicsManager.appendVisualizer(vis5);
+    
+    getTopics(topicsManager);
+    setTimeout(function() {
+        topicsManager.subscribeRequiredTopics();
         autoscaleElrob();
         window.onresize = autoscaleElrob
-        console.log(vis1);
-        let interval =setInterval(function(){vis1.render()}, 100);
+        let interval =setInterval(function(){vis1.render();
+        vis2.render();
+        vis3.render();
+        vis4.render();
+        vis5.render();}, 100);
         }, 2000);
         autoscaleElrob();
         window.onresize = autoscaleElrob
- //   }
- //   document.addEventListener('DOMContentLoaded', init, false);
 }

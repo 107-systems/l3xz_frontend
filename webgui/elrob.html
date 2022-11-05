@@ -45,7 +45,6 @@
         <script src = "javascript/visualizer/renderers/geometry-msgs/map.js" type = "text/javascript"></script>
         <script src = "javascript/visualizer/renderers/maps.js" type = "text/javascript"></script>
 
-        <script src = "javascript/setup/robotparameters.js" type = "text/javascript"></script>
         <script src = "javascript/setup/setup_elrob.js" type = "text/javascript"></script>
 
     </head>
@@ -72,11 +71,6 @@
         <div id="headstick" style="height:110px; width:110px;"></div>
         <div id="steerstick" style="height:110px; width:110px;"></div>
        	<button id="button_emstop" class="css_rectbutton" onclick="button_emstop_onclick()">STOP</button>
-        <!--button id="button_up" class="css_squarebutton" onclick="button_up_onclick()">+</button>
-        <button id="button_down" class="css_squarebutton" onclick="button_down_onclick()">-</button>
-       	<button id="button_emstop" class="css_squarebutton" onclick="button_emstop_onclick()">STOP</button>
-        <button id="button_left" class="css_squarebutton" onclick="button_left_onclick()"><</button>
-        <button id="button_right" class="css_squarebutton" onclick="button_right_onclick()">></button-->
       	<button id="button_download" class="css_rectbuttonsmall" onclick="button_download_onclick()">Download</button>
         <div id="lighting">
           <input type="checkbox" class="css_checkbox" id="thermal_red" onclick="thermal_lighting_onclick()"/>
@@ -109,26 +103,6 @@
 	<output id="output_startbearing" class="css_output">°</output>
       	<button id="button_startlog" class="css_rectbuttonsmall" onclick="button_startlog_onclick()">set startpoint</button>
         <script language="javascript" type = "text/javascript">
-    parameters = {
-        title: "control",
-        internalFillColor: "#FF0000",
-        internalStrokeColor: "#008000",
-        internalLineWidth: 3,
-        externalLineWidth: 3,
-        externalStrokeColor: "#000000",
-        autoReturnToCenter: false,
-    }
-    joysteer = new JoyStick('steerstick', parameters);
-    parameters = {
-        title: "head",
-        internalFillColor: "#FF0000",
-        internalStrokeColor: "#008000",
-        internalLineWidth: 3,
-        externalLineWidth: 3,
-        externalStrokeColor: "#000000",
-        autoReturnToCenter: false,
-    }
-    joyhead = new JoyStick('headstick', parameters);
             initElrob(); 
         </script>
     </body>

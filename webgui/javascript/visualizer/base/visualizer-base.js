@@ -67,7 +67,11 @@ class Visualizer {
     }
 
     getRequiredMessages() {
-        return this.messages.keys();
+        let keys = [];
+        for (let [k, v] of this.messages.entries()) {
+            keys.push(k);
+        }
+        return keys;
     }
 
     updateMessage(name, type, message) {
