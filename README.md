@@ -99,7 +99,7 @@ function render_message_packet_topic(name, type, message, visualizer)
 ~~~
 
 The visualizer base is attached to a canvas, which and also it's context are parameters of the ```visualizer``` object.
-The function ```visualizer.defaultDownload(name)``` takes a named screenshot of the current rendering. Note, that also the download content of can be overwritten, by changing the self-explaining parameters ```visualizer.downloadName```, ```visualizer.downloadMIME```, ```visualizer.downloadData```.
+The function ```visualizer.defaultDownload(name)``` takes a named screenshot of the current rendering. Note, that also the download content can be overwritten by changing the self-explaining parameters ```visualizer.downloadName```, ```visualizer.downloadMIME```, ```visualizer.downloadData```.
 
 ## Third-party 
 
