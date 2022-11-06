@@ -1,12 +1,10 @@
 /***************************************************************
 This software is distributed under the terms of the MIT License.
 Copyright (c) 2022 107-Systems
-Author: Jonas Wühr
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
 ****************************************************************/
-class Joydrive
-{
-    constructor(maxX, maxR, xStep, rStep)
-    {
+class Joydrive {
+    constructor(maxX, maxR, xStep, rStep) {
         this.maxX = maxX;
         this.maxR = maxR;
         this.xStep = xStep;
@@ -16,80 +14,69 @@ class Joydrive
         this.vR = 0.0;
 
         this.cmdVel = new ROSLIB.Topic({
-            ros : ros,
-            name : '/cmd_vel',
-            messageType : 'geometry_msgs/Twist'
+            ros: ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/Twist'
         });
     }
 
-    publish()
-    {
-        if(emergencyStop.isPressed())
-        {
+    publish() {
+        if (emergencyStop.isPressed()) {
             this.vX = 0.0;
             this.vR = 0.0;
         }
-        var twist = new ROSLIB.Message({
-            linear : {
-                x : this.vX,
-                y : 0.0,
-                z : 0.0
+        let twist = new ROSLIB.Message({
+            linear: {
+                x: this.vX,
+                y: 0.0,
+                z: 0.0
             },
-            angular : {
-                x : 0.0,
-                y : 0.0,
-                z : this.vR
+            angular: {
+                x: 0.0,
+                y: 0.0,
+                z: this.vR
             }
         });
         this.cmdVel.publish(twist);
     }
 
-    up()
-    {
+    up() {
         this.vX += this.xStep;
-        if(this.vX > this.maxX)
-        {
+        if (this.vX > this.maxX) {
             this.vX = this.maxX;
         }
 
         this.publish();
     }
 
-    down()
-    {
+    down() {
         this.vX -= this.xStep;
-        if(this.vX < -this.maxX)
-        {
+        if (this.vX < -this.maxX) {
             this.vX = -this.maxX;
         }
 
         this.publish();
     }
 
-    right()
-    {
+    right() {
         this.vR += this.rStep;
-        if(this.vR > this.maxR)
-        {
+        if (this.vR > this.maxR) {
             this.vR = this.maxR;
         }
 
         this.publish();
     }
 
-    left()
-    {
+    left() {
         this.vR -= this.rStep;
-        if(this.vR < -this.maxR)
-        {
+        if (this.vR < -this.maxR) {
             this.vR = -this.maxR;
         }
 
         this.publish();
     }
 
-    stop()
-    {
+    stop() {
         this.vR = 0.0;
         this.vX = 0.0;
         this.publish();

@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
+****************************************************************/
 class Visualizer {
     constructor(divId, canvasId) {
         this.divId = divId;
@@ -37,7 +42,7 @@ class Visualizer {
     }
 
     showCanvas(show) {
-        var mode = "block";
+        let mode = "block";
         if (!show) {
             mode = "none";
         }

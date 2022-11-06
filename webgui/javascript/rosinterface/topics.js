@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
+****************************************************************/
 class Topic {
     constructor(name, type, visualizers) {
         this.name = name;
@@ -21,8 +26,8 @@ class Topic {
     }
 
     subscribe() {
-        var name = this.name;
-        var type = this.type;
+        let name = this.name;
+        let type = this.type;
         this.subscribed = true;
         let vis = this.visualizers;
         this.listener.subscribe(function(message) {
@@ -112,12 +117,12 @@ class TopicsManager {
                     let required = this.visualizers[v].getRequiredMessages();
                     if (required.includes(topic[1])) {
                         if (!subscribed.includes(topic[0])) {
-                                subscribed.push(topic[0]);
-                            }
+                            subscribed.push(topic[0]);
                         }
                     }
                 }
             }
-            this.subscribeTopics(subscribed);
         }
+        this.subscribeTopics(subscribed);
     }
+}

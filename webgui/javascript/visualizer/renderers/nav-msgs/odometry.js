@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainger@gmail.com)
+****************************************************************/
 function render_nav_msgs_Odometry(name, type, message, visualizer) {
 
     if ("nav_msgs/Odometry" == type) {
@@ -14,8 +19,8 @@ function render_nav_msgs_Odometry(name, type, message, visualizer) {
         visualizer.context.fillText(String("y: " + message.pose.pose.orientation.y.toFixed(3)), 50, 175);
         visualizer.context.fillText(String("z: " + message.pose.pose.orientation.z.toFixed(3)), 50, 200);
         visualizer.context.fillText(String("w: " + message.pose.pose.orientation.w.toFixed(3)), 50, 225);
-        var q = message.pose.pose.orientation;
-        var yaw = -Math.atan2(2.0 * (q.w * q.z + q.w * q.y), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z) * 180 / Math.PI;
+        let q = message.pose.pose.orientation;
+        let yaw = -Math.atan2(2.0 * (q.w * q.z + q.w * q.y), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z) * 180 / Math.PI;
         visualizer.context.fillText(String("yaw: " + yaw.toFixed(3)), 50, 250);
         visualizer.context.fillText("position:", 50, 275);
         visualizer.context.fillStyle = "#ffffff";

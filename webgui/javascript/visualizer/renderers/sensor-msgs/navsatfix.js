@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr
+****************************************************************/
 function render_sensor_msgs_NavSatFix(name, type, message, visualizer) {
     if ("sensor_msgs/NavSatFix" == type) {
 

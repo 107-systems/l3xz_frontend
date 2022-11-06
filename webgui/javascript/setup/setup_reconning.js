@@ -1,8 +1,10 @@
 /***************************************************************
 This software is distributed under the terms of the MIT License.
 Copyright (c) 2022 107-Systems
-Author: Jonas Wühr
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
 ****************************************************************/
+
+// Rendering elements
 var vis1;
 var vis2;
 var vis3;
@@ -10,11 +12,13 @@ var vis4;
 var vis5;
 var topicsManager;
 
+// Controllers
 var joyLeg;
 var joyHead;
 var cmdLeg;
 var cmdHead;
 
+// Adapt autoscale function
 function autoscaleElrob() {
     scale(3000, 2000)
 };
@@ -36,6 +40,7 @@ function loadJS(url) {
 
 function initElrob() {
 
+    // Load all files from here to provied a clean HTML file
     urls = [
         "javascript/3rdparty/download.min.js",
         "javascript/3rdparty/eventemitter.js",
@@ -88,14 +93,14 @@ function initElrob() {
             joyHead = new JoyStick('headstick', joystickParameters);
 
             cmdLeg = new ROSLIB.Topic({
-                ros : ros,
-                name : '/l3xz/joy_leg',
-                messageType : 'sensor_msgs/Joy'
+                ros: ros,
+                name: '/l3xz/joy_leg',
+                messageType: 'sensor_msgs/Joy'
             });
             cmdHead = new ROSLIB.Topic({
-                ros : ros,
-                name : '/l3xz/joy_head',
-                messageType : 'sensor_msgs/Joy'
+                ros: ros,
+                name: '/l3xz/joy_head',
+                messageType: 'sensor_msgs/Joy'
             });
 
             topicsManager = new TopicsManager(false);
@@ -118,6 +123,7 @@ function initElrob() {
             topicsManager.appendVisualizer(vis5);
 
             getTopics(topicsManager);
+            // Start reconning interface
             setTimeout(function() {
                 topicsManager.subscribeRequiredTopics();
                 autoscaleElrob();
@@ -130,12 +136,12 @@ function initElrob() {
                     vis5.render();
 
                     cmdLeg.publish(new ROSLIB.Message({
-                        axes : [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
-                        buttons : []
+                        axes: [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
+                        buttons: []
                     }));
                     cmdHead.publish(new ROSLIB.Message({
-                        axes : [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
-                        buttons : []
+                        axes: [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
+                        buttons: []
                     }));
                 }, 100);
 

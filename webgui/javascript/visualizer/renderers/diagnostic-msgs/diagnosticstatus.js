@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
+****************************************************************/
 function render_diagnostic_msgs_DiagnosticStatus(name, type, message, visualizer) {
     if ("diagnostic_msgs/DiagnosticStatus" == type) {
         visualizer.context.fillStyle = "#000000";
@@ -5,7 +10,7 @@ function render_diagnostic_msgs_DiagnosticStatus(name, type, message, visualizer
         visualizer.context.fillStyle = "#ffffff";
         visualizer.context.font = "30px Arial";
         visualizer.context.fillText(name, 50, 50);
-        var text;
+        let text;
         switch (message.level) {
             case 0:
                 text = "OK";
@@ -25,7 +30,7 @@ function render_diagnostic_msgs_DiagnosticStatus(name, type, message, visualizer
         }
         visualizer.context.fillText(text, 50, 100);
         visualizer.defaultDownload(name);
-    return true;
+        return true;
     }
-return false;
+    return false;
 }

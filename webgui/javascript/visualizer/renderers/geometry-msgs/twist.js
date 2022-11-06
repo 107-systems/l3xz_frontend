@@ -1,3 +1,8 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
+****************************************************************/
 function render_geometry_msgs_Twist(name, type, message, visualizer) {
     if ("geometry_msgs/Twist" == type) {
         visualizer.context.fillStyle = "#000000";

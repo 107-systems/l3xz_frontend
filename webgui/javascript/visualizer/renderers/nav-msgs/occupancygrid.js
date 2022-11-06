@@ -1,23 +1,28 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com) 
+****************************************************************/
 function render_nav_msgs_OccupancyGrid(name, type, message, visualizer) {
 
     if ("nav_msgs/OccupancyGrid" == type) {
         visualizer.lastGrid = message;
         visualizer.showCanvas(true);
         visualizer.clearCanvas(true);
-        var width = visualizer.width;
-        var height = visualizer.height;
-        var arr = message.data;
+        let width = visualizer.width;
+        let height = visualizer.height;
+        let arr = message.data;
 
         width = message.info.width;
         height = message.info.height;
 
-        var img = visualizer.context.getImageData(0, 0, width, height);
-        var pixels = img.data;
+        let img = visualizer.context.getImageData(0, 0, width, height);
+        let pixels = img.data;
 
-        for (var y = 0; y < height; y++) {
-            for (var x = 0; x < width; x++) {
-                var idxOut = 4 * (x + y * width);
-                var idxIn = (x + (height - y) * width);
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                let idxOut = 4 * (x + y * width);
+                let idxIn = (x + (height - y) * width);
                 if (-1 == arr[idxIn]) {
                     pixels[idxOut] = 0;
                     pixels[idxOut + 1] = 0;
@@ -31,7 +36,7 @@ function render_nav_msgs_OccupancyGrid(name, type, message, visualizer) {
             }
         }
 
-        var pose = message.info.origin;
+        let pose = message.info.origin;
 
         visualizer.context.putImageData(img, 0, 0);
 
