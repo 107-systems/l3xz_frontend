@@ -100,7 +100,7 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
 
 #control_enable
 {
-    position:absolue;
+    position: absolute;
     left:0px;
     top: 630px;
 }
