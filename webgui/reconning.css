@@ -25,6 +25,7 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     top: 0px;
     left: 0px;
 	border: 3px solid #00E46F;
+    border-radius: 5px;
 }
 
 #div_screen2
@@ -41,6 +42,7 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     top: 0px;
     left: 0px;
 	border: 3px solid #00E46F;
+    border-radius: 5px;
 }
 
 #div_screen3
@@ -57,6 +59,7 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     top: 0px;
     left: 0px;
 	border: 3px solid #00E46F;
+    border-radius: 5px;
 }
 
 #div_screen4
@@ -67,12 +70,14 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     overflow-x: "scroll";
     overflow-y: "scroll";
 }
+
 #canvas_screen4
 {
 	position: absolute;
     top: 0px;
     left: 0px;
 	border: 3px solid #00E46F;
+    border-radius: 5px;
 }
 
 #div_screen5
@@ -83,34 +88,44 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     overflow-x: "scroll";
     overflow-y: "scroll";
 }
+
 #canvas_screen5
 {
 	position: absolute;
     top: 0px;
     left: 0px;
 	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#control_enable
+{
+    position:absolue;
+    left:0px;
+    top: 630px;
 }
 
 #button_emstop 
 {
     background-color: red;
     position: absolute;
-    left: 0px;
-    top: 630px;
+    left: 13px;
+    top: 660px;
+    height: 45px;
 }
 
 #legstick
 {
     position: absolute;
     left: 0px;
-    top: 500px;
+    top: 530px;
 }
 
 #headstick
 {
     position: absolute;
     left: 120px;
-    top: 500px;
+    top: 530px;
 }
 #button_download
 {
@@ -119,7 +134,7 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     left: 0px;
 }
 
-#lighting
+#sliders
 {
     position: relative;
     top: 75px;
@@ -129,63 +144,62 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
 #select_tag
 {
     position: absolute;
-    top: 260px;
+    top: 290px;
     left: 0px;
 }
 
 #button_log
 {
     position: absolute;
-    top: 290px;
+    top: 325px;
     left: 0px;
 }
 
 #input_startlat
 {
     position: absolute;
-    top: 330px;
+    top: 360px;
     left: 0px;
 }
 
 #output_startlat
 {
     position: absolute;
-    top: 340px;
+    top: 370px;
     left: 200px;
 }
 
 #input_startlon
 {
     position: absolute;
-    top: 370px;
+    top: 400px;
     left: 0px;
 }
 
 #output_startlon
 {
     position: absolute;
-    top: 380px;
+    top: 410px;
     left: 200px;
 }
 
 #input_startbearing
 {
     position: absolute;
-    top: 410px;
+    top: 440px;
     left: 0px;
 }
 
 #output_startbearing
 {
     position: absolute;
-    top: 420px;
+    top: 450px;
     left: 200px;
 }
 
 #button_startlog
 {
     position: absolute;
-    top: 450px;
+    top: 480px;
     left: 0px;
 }
-

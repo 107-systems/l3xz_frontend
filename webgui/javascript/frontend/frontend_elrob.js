@@ -95,6 +95,10 @@ function rgb_lighting_onclick() {
     set_ir('/l3xz/openmv_rgb/ir', document.getElementById("rgb_ir").checked);
 }
 
+function control_enable_onclick() {
+    controlEnable = document.getElementById("control_enable").checked;
+}
+
 function button_log_onclick() {
     switch (document.getElementById("select_tag").value) {
         case "thermal":

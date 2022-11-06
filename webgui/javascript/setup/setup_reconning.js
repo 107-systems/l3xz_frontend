@@ -17,6 +17,7 @@ var joyLeg;
 var joyHead;
 var cmdLeg;
 var cmdHead;
+var controlEnable;
 
 // Adapt autoscale function
 function autoscaleElrob() {
@@ -123,6 +124,9 @@ function initElrob() {
             topicsManager.appendVisualizer(vis5);
 
             getTopics(topicsManager);
+
+            controlEnable = false;
+
             // Start reconning interface
             setTimeout(function() {
                 topicsManager.subscribeRequiredTopics();
@@ -135,14 +139,16 @@ function initElrob() {
                     vis4.render();
                     vis5.render();
 
-                    cmdLeg.publish(new ROSLIB.Message({
-                        axes: [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
-                        buttons: []
-                    }));
-                    cmdHead.publish(new ROSLIB.Message({
-                        axes: [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
-                        buttons: []
-                    }));
+                    if (controlEnable) {
+                        cmdLeg.publish(new ROSLIB.Message({
+                            axes: [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
+                            buttons: []
+                        }));
+                        cmdHead.publish(new ROSLIB.Message({
+                            axes: [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
+                            buttons: []
+                        }));
+                    }
                 }, 100);
 
             }, 2000);
