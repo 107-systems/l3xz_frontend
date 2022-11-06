@@ -17,7 +17,7 @@ To run the frontend You need a http-Server, e. g. the one included in Python. Al
 # Clone this repository
 git clone https://github.com/107-systems/l3xz_frontend
 # Launch rosbridge socker server
-ros2 launch rosbridge_server rosbridge_websocket.launch
+ros2 launch rosbridge_server rosbridge_websocket.launch &
 # Start a http server in the webgui folder
 cd webgui
 python3 -m http.server 8080
@@ -26,4 +26,10 @@ python3 -m http.server 8080
 Finally You can access the landing page in any browser.
 <p align="center">
     <img src="doc/indexpage.png">
+</p>
+
+# Pages
+## Reconning dashboard
+<p align="center">
+    <img src="doc/reconningpage.png">
 </p>
