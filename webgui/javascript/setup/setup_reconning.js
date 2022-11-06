@@ -41,7 +41,7 @@ function loadJS(url) {
 
 function initElrob() {
 
-    // Load all files from here to provied a clean HTML file
+    // Load all files from here to provide a clean HTML file
     urls = [
         "javascript/3rdparty/download.min.js",
         "javascript/3rdparty/eventemitter.js",
