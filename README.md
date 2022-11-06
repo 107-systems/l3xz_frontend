@@ -16,7 +16,7 @@ To run the frontend You need a http-Server, e. g. the one included in Python. Al
 ~~~bash
 # Clone this repository
 git clone https://github.com/107-systems/l3xz_frontend
-# Launch rosbridge socker server
+# Launch rosbridge socket server
 ros2 launch rosbridge_server rosbridge_websocket.launch &
 # Start a http server in the webgui folder
 cd webgui
