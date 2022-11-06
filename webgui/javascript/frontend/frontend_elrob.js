@@ -3,22 +3,6 @@ This software is distributed under the terms of the MIT License.
 Copyright (c) 2022 107-Systems
 Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
 ****************************************************************/
-function button_up_onclick() {
-    joydrive.up();
-}
-
-function button_down_onclick() {
-    joydrive.down();
-}
-
-function button_left_onclick() {
-    joydrive.left();
-}
-
-function button_right_onclick() {
-    joydrive.right();
-}
-
 function button_emstop_onclick() {
     emergencyStop.press();
 }
