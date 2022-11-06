@@ -13,6 +13,7 @@ class Visualizer {
         this.height = 0;
         this.update = false;
 
+        this.downloadAvailable = false;
         this.downloadData = null;
         this.downloadMIME = null;
         this.downloadName = null;
@@ -100,12 +101,19 @@ class Visualizer {
         this.downloadData = this.canvas.toDataURL("image/jpeg");
     }
 
-    download() {
-        if (null != this.downloadData) {
-            download(this.downloadData, this.downloadName, this.downloadMIME);
+    download_nonblocking() {
+        if (this.downloadAvailable) {
+            if (null != this.downloadData) {
+                download(this.downloadData, this.downloadName, this.downloadMIME);
+            }
+        } else {
+            setTimeout(this.download_nonblocking, 100);
         }
     }
 
+    download() {
+        this.download_nonblocking();
+    }
     show(name, type, message) {
         this.showIdle();
     }
@@ -113,6 +121,7 @@ class Visualizer {
     render() {
         if (this.update) {
             this.update = false;
+            this.downloadAvailable = false;
 
             this.connectCanvas();
             this.clearCanvas();
@@ -129,6 +138,7 @@ class Visualizer {
                     }
                 }
             }
+            this.downloadAvailable = true;
         }
     }
 
