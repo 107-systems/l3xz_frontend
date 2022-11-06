@@ -18,20 +18,6 @@ class Visualizer {
         this.downloadName = null;
 
         this.messages = new Map();
-
-        this.origin = new Map();
-        this.origin.set('position', {
-            'x': 0,
-            'y': 0,
-            'z': 0
-        });
-        this.origin.set('orientation', {
-            'raw': 0,
-            'pitch': 0,
-            'yaw': 0
-        });
-        this.odometry = new Map(this.origin);
-
     }
 
     connectCanvas() {
@@ -77,6 +63,14 @@ class Visualizer {
             keys.push(k);
         }
         return keys;
+    }
+
+    getRequiredMessageTypes() {
+        let types = [];
+        for (let [k, v] of this.messages.entries()) {
+            types.push(v.type);
+        }
+        return types;
     }
 
     updateMessage(name, type, message) {
@@ -137,4 +131,36 @@ class Visualizer {
             }
         }
     }
+
+    drawArrow(fromx, fromy, tox, toy, lineWidth, headLength, style) {
+        let ctx = this.context;
+        const width = lineWidth;
+        let headlen = headLength;
+
+        let angle = Math.atan2(toy - fromy, tox - fromx);
+        tox -= Math.cos(angle) * ((width * 1.15));
+        toy -= Math.sin(angle) * ((width * 1.15));
+
+        ctx.beginPath();
+        ctx.moveTo(fromx, fromy);
+        ctx.lineTo(tox, toy);
+        ctx.strokeStyle = style;
+        ctx.lineWidth = width;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(tox, toy);
+        ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 7), toy - headlen * Math.sin(angle - Math.PI / 7));
+
+        ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 7), toy - headlen * Math.sin(angle + Math.PI / 7));
+        ctx.lineTo(tox, toy);
+        ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 7), toy - headlen * Math.sin(angle - Math.PI / 7));
+
+        ctx.strokeStyle = style;
+        ctx.lineWidth = width;
+        ctx.stroke();
+        ctx.fillStyle = style;
+        ctx.fill();
+    }
+
 }

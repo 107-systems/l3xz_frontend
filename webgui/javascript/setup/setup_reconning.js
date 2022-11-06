@@ -110,11 +110,12 @@ function initElrob() {
             vis3 = new Visualizer("div_screen3", "canvas_screen3");
             vis4 = new Visualizer("div_screen4", "canvas_screen4");
             vis5 = new Visualizer("div_screen5", "canvas_screen5");
-            vis1.insertMessage("/road_detector/road_lidar");
-            vis2.insertMessage("/road_detector/roaddetector/out/compressed");
-            vis3.insertMessage("/road_detector/roaddetector/way/compressed");
-            vis4.insertMessage("/grid_planner/planner/out/compressed");
+            vis1.insertMessage("/l3xz/openmv_thermal/image_color_compressed");
+            vis2.insertMessage("/l3xz/openmv_rgb/image_color_compressed");
+            vis3.insertMessage("/camera/depth/image_rect_raw/compressed");
+            vis4.insertMessage("/camera/color/image_raw/compressed");
             vis5.insertMessage("/rtabmap/grid_map");
+            vis5.insertMessage("/odom_slam");
 
             topicsManager = new TopicsManager(false);
             topicsManager.appendVisualizer(vis1);

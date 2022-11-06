@@ -33,3 +33,14 @@ Finally You can access the landing page in any browser.
 <p align="center">
     <img src="doc/reconningpage.png">
 </p>
+The reconning dashboard page can be used to monitor and operate the exploration of areas.
+
+It has the following features:
+
+* Visualization of multiple sensor messages
+* Rendering of a map of the enviroment
+* In time download of sensordata
+* Interface for the documentation of selected locations using the recorder node in the [mapping package](https://github.com/107-systems/l3xz-mapping)
+* Control of the robot's LEDs
+* Optional control of the robot's motion (left joystick: legs, right joystick: sensor head)
+* Emergency stop
