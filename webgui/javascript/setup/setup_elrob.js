@@ -76,11 +76,11 @@ function initElrob() {
         .then(function() {
             let joystickParameters = {
                 title: "control",
-                internalFillColor: "#FF0000",
-                internalStrokeColor: "#008000",
+                internalFillColor: "#00E46F",
+                internalStrokeColor: "#EA0052",
                 internalLineWidth: 3,
                 externalLineWidth: 3,
-                externalStrokeColor: "#000000",
+                externalStrokeColor: "#D40045",
                 autoReturnToCenter: false,
             }
             joyLeg = new JoyStick('legstick', joystickParameters);

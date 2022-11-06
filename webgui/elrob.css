@@ -1,3 +1,10 @@
+#container
+{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+
 #div_screen1
 {
     position: absolute;
@@ -6,12 +13,13 @@
     overflow-x: "scroll";
     overflow-y: "scroll";
 }
+
 #canvas_screen1
 {
 	position: absolute;
     top: 0px;
     left: 0px;
-	border: 5px solid black;
+	border: 3px solid #00E46F;
 }
 
 #div_screen2
@@ -27,7 +35,7 @@
 	position: absolute;
     top: 0px;
     left: 0px;
-	border: 5px solid black;
+	border: 3px solid #00E46F;
 }
 
 #div_screen3
@@ -43,7 +51,7 @@
 	position: absolute;
     top: 0px;
     left: 0px;
-	border: 5px solid black;
+	border: 3px solid #00E46F;
 }
 
 #div_screen4
@@ -59,7 +67,7 @@
 	position: absolute;
     top: 0px;
     left: 0px;
-	border: 5px solid black;
+	border: 3px solid #00E46F;
 }
 
 #div_screen5
@@ -75,37 +83,8 @@
 	position: absolute;
     top: 0px;
     left: 0px;
-	border: 5px solid black;
+	border: 3px solid #00E46F;
 }
-
-/*#button_left
-{
-    position: absolute;
-    left: 0px;
-    top: 560px;
-}
-
-#button_right
-{
-    position: absolute;
-    left: 160px;
-    top: 560px;
-}
-
-#button_up
-{
-    position: absolute;
-    left: 80px;
-    top: 480px;
-}
-
-#button_down
-{
-    position: absolute;
-    left: 80px;
-    top: 640px;
-}
-*/
 
 #button_emstop 
 {
@@ -121,6 +100,7 @@
     left: 0px;
     top: 500px;
 }
+
 #headstick
 {
     position: absolute;
@@ -166,7 +146,7 @@
 {
     position: absolute;
     top: 340px;
-    left: 210px;
+    left: 200px;
 }
 
 #input_startlon
@@ -180,7 +160,7 @@
 {
     position: absolute;
     top: 380px;
-    left: 210px;
+    left: 200px;
 }
 
 #input_startbearing
@@ -194,7 +174,7 @@
 {
     position: absolute;
     top: 420px;
-    left: 210px;
+    left: 200px;
 }
 
 #button_startlog
