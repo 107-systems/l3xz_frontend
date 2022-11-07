@@ -203,3 +203,11 @@ Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
     top: 480px;
     left: 0px;
 }
+
+#logo
+{
+    position: absolute;
+    top: 25px;
+    left: 1275px;
+    width: 100%;
+}
