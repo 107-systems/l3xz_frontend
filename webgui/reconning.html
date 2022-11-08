@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Jonas Wuehr (jonaswuehrmaintainer@gmail.com)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="resources/l3xz-logo-memento-mori-github.png" type="image/png">
+        <title>
+            L3X-Z	Dashboard
+        </title>
+
+        <link rel="stylesheet" href="general.css">
+        <link rel="stylesheet" href="reconning.css">
+       
+        <script src = "javascript/setup/setup_reconning.js" type = "text/javascript"></script>
+    </head>
+    <body>
+        <div id="container">
+        <div id="div_screen1" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen1" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen2" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen2" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen3" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen3" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen4" style = "width: 300px; height: 150px">
+            <canvas id="canvas_screen4" width="300" height="150"></canvas>
+        </div>
+
+        <div id="div_screen5" style = "width: 675px; height: 675px">
+            <canvas id="canvas_screen5" width="675" height="675"></canvas>
+        </div>
+        <div id="headstick" style="height:110px; width:110px;"></div>
+        <div id="legstick" style="height:110px; width:110px;"></div>
+       	<button id="button_emstop" class="css_rectbutton" onclick="button_emstop_onclick()">STOP</button>
+      	<button id="button_download" class="css_rectbuttonsmall" onclick="button_download_onclick()">Download</button>
+        <div id="sliders">
+            <input type="checkbox" class="css_checkbox" id="thermal_red" onclick="thermal_lighting_onclick()"/>
+            <label for="thermal_red" class="css_text">Thermal_RED</label><br>
+            <input type="checkbox" class="css_checkbox" id="thermal_green" onclick="thermal_lighting_onclick()"/>
+            <label for="thermal_green" class="css_text">Thermal_GREEN</label><br>
+            <input type="checkbox" class="css_checkbox" id="thermal_blue" onclick="thermal_lighting_onclick()"/>
+            <label for="thermal_blue" class="css_text">Thermal_BLUE</label><br>
+            <input type="checkbox" class="css_checkbox" id="thermal_ir" onclick="thermal_lighting_onclick()"/>
+            <label for="thermal_ir" class="css_text">Thermal_IR</label><br>
+            <input type="checkbox" class="css_checkbox" id="rgb_red" onclick="rgb_lighting_onclick()"/>
+            <label for="rgb_red" class="css_text">RGB_RED</label><br>
+            <input type="checkbox" class="css_checkbox" id="rgb_green" onclick="rgb_lighting_onclick()"/>
+            <label for="rgb_green" class="css_text">RGB_GREEN</label><br>
+            <input type="checkbox" class="css_checkbox" id="rgb_blue" onclick="rgb_lighting_onclick()"/>
+            <label for="rgb_blue" class="css_text">RGB_BLUE</label><br>
+            <input type="checkbox" class="css_checkbox" id="rgb_ir" onclick="rgb_lighting_onclick()"/>
+            <label for="rgb_ir" class="css_text">RGB_IR</label><br>
+            <input type="checkbox" class="css_checkbox" id="control_enable" onclick="control_enable_onclick()"/>
+            <label for="control_enable" class="css_text">Control</label><br>
+        </div>
+        <select id="select_tag" class="css_select">
+            <option value="thermal">THERMAL</option>
+            <option value="radiation">RADIATION</option>
+            <option value="other">OTHER</option>
+        </select>
+      	<button id="button_log" class="css_rectbuttonsmall" onclick="button_log_onclick()">log waypoint</button>
+	    <input id="input_startlat" class="css_input">
+    	<output id="output_startlat" class="css_output css_text">Lat</output>
+	    <input id="input_startlon" class="css_input">
+    	<output id="output_startlon" class="css_output css_text">Lon</output>
+	    <input id="input_startbearing" class="css_input">
+    	<output id="output_startbearing" class="css_output css_text">°</output>
+      	<button id="button_startlog" class="css_rectbuttonsmall" onclick="button_startlog_onclick()">set startpoint</button>
+        <img id="logo" src="resources/107-systems-logo.png"></img>
+        </div>
+        <script language="javascript" type = "text/javascript">
+            initElrob(); 
+        </script>
+    </body>
+</html>

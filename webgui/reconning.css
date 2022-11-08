@@ -1,0 +1,213 @@
+/***************************************************************
+This software is distributed under the terms of the MIT License.
+Copyright (c) 2022 107-Systems
+Author: Jonas Wühr (jonaswuehrmaintainer@gmail.com)
+****************************************************************/
+#container
+{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+
+#div_screen1
+{
+    position: absolute;
+    top: 25px;
+    left: 250px;
+    overflow-x: "scroll";
+    overflow-y: "scroll";
+}
+
+#canvas_screen1
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#div_screen2
+{
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    overflow-x: "scroll";
+    overflow-y: "scroll";
+}
+#canvas_screen2
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#div_screen3
+{
+    position: absolute;
+    top: 375px;
+    left: 250px;
+    overflow-x: "scroll";
+    overflow-y: "scroll";
+}
+#canvas_screen3
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#div_screen4
+{
+    position: absolute;
+    top: 550px;
+    left: 250px;
+    overflow-x: "scroll";
+    overflow-y: "scroll";
+}
+
+#canvas_screen4
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#div_screen5
+{
+    position: absolute;
+    top: 25px;
+    left: 575px;
+    overflow-x: "scroll";
+    overflow-y: "scroll";
+}
+
+#canvas_screen5
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	border: 3px solid #00E46F;
+    border-radius: 5px;
+}
+
+#control_enable
+{
+    position: absolute;
+    left:0px;
+    top: 630px;
+}
+
+#button_emstop 
+{
+    background-color: red;
+    position: absolute;
+    left: 13px;
+    top: 660px;
+    height: 45px;
+}
+
+#legstick
+{
+    position: absolute;
+    left: 0px;
+    top: 530px;
+}
+
+#headstick
+{
+    position: absolute;
+    left: 120px;
+    top: 530px;
+}
+#button_download
+{
+    position: absolute;
+    top: 25px;
+    left: 0px;
+}
+
+#sliders
+{
+    position: relative;
+    top: 75px;
+    left: 0px;
+}
+
+#select_tag
+{
+    position: absolute;
+    top: 290px;
+    left: 0px;
+}
+
+#button_log
+{
+    position: absolute;
+    top: 325px;
+    left: 0px;
+}
+
+#input_startlat
+{
+    position: absolute;
+    top: 360px;
+    left: 0px;
+}
+
+#output_startlat
+{
+    position: absolute;
+    top: 370px;
+    left: 200px;
+}
+
+#input_startlon
+{
+    position: absolute;
+    top: 400px;
+    left: 0px;
+}
+
+#output_startlon
+{
+    position: absolute;
+    top: 410px;
+    left: 200px;
+}
+
+#input_startbearing
+{
+    position: absolute;
+    top: 440px;
+    left: 0px;
+}
+
+#output_startbearing
+{
+    position: absolute;
+    top: 450px;
+    left: 200px;
+}
+
+#button_startlog
+{
+    position: absolute;
+    top: 480px;
+    left: 0px;
+}
+
+#logo
+{
+    position: absolute;
+    top: 25px;
+    left: 1275px;
+    width: 100%;
+}
