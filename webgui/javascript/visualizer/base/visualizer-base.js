@@ -132,7 +132,7 @@ class Visualizer {
                     let all = renderers[rs];
                     for (let r = 0; r < all.length; r++) {
                         let current = all[r]
-                        if (current(name, payload.type, payload.data, this)) {
+                        if (current(name, payload.type.replace('/msg', ''), payload.data, this)) {
                             break;
                         }
                     }
