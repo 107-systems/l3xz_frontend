@@ -1,0 +1,3 @@
+[submodule "webgui/l3xz_frontend_base"]
+	path = webgui/l3xz_frontend_base
+	url = https://github.com/107-systems/l3xz_frontend_base.git
