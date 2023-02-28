@@ -64,17 +64,9 @@ TBD
     ├── javascript                      Javascript root
     │   ├── 3rdparty                    Third party libraries
     │   ├── frontend                    Callbacks for frontend elements
-    │   ├── rosinterface                Rosbridge socket interaction 
     │   ├── setup                       Setup routines for pages
-    │   ├── util                        Helpers like geocalculation or logging
-    │   └── visualizer                  Topic visualization
-    │       ├── base                    Rendering cores that can be attached via DOM
-    │       └── renderers               Rendering functions sorted by ROS topics
-    │           ├── diagnostic-msgs
-    │           ├── geometry-msgs
-    │           ├── nav-msgs
-    │           ├── sensor-msgs
-    │           └── std-msgs
+    │
+    ├── l3xz_frontend_base              Submodule with base functionality
     └── resources                       General static resources
 ~~~
 
