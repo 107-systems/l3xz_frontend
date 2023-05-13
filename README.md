@@ -23,23 +23,18 @@ cd webgui
 python3 -m http.server 8080
 ~~~
 
-Finally You can access the landing page in any browser.
-<p align="center">
-    <img src="doc/indexpage.png">
-</p>
-
 # Pages
-## Reconning dashboard
+## L3X-Z dashboard
 <p align="center">
     <img src="doc/reconningpage.png">
 </p>
-The reconning dashboard page can be used to monitor and operate the exploration of areas.
+The L3X-Z dashboard page can be used to monitor and operate the exploration of areas.
 
 It has the following features:
 
 * Visualization of multiple sensor messages
 * Rendering of a map of the environment
-* In time download of sensordata
+* In time download of sensor data
 * Interface for the documentation of selected locations using the recorder node in the [mapping package](https://github.com/107-systems/l3xz-mapping)
 * Control of the robot's LEDs
 * Optional control of the robot's motion (left joystick: legs, right joystick: sensor head)
@@ -73,4 +68,3 @@ TBD
 ## Adding a new page
 
 To add a new page, a HTML document needs to be created in the root (```webgui```) and linked in ```index.html```. The setup functions, called after loading the static page, are expected to be implemented in ```javascript/setup``` in a new file. The callbacks for static webpage elements should be implemented in a new file in ```javascript/frontend```.
-
