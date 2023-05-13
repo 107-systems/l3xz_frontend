@@ -19,7 +19,7 @@ sudo apt-get install ros-humble-rosbridge-server
 # Clone this repository with submodules
 git clone --recursive https://github.com/107-systems/l3xz_frontend
 # Launch rosbridge socket server
-ros2 launch rosbridge_server rosbridge_websocket.launch &
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml &
 # Start a http server in the webgui folder
 cd webgui
 python3 -m http.server 8080
