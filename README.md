@@ -14,10 +14,12 @@ Web based frontend for the [L3X-Z hexapod robot](https://github.com/107-systems/
 To run the frontend You need a http-Server, e. g. the one included in Python. Also the [rosbridge_server](http://wiki.ros.org/rosbridge_server) package is required to communicate with the ROS-system on the robot.
 
 ~~~bash
-# Clone this repository with submodules 
+# Install ROS package rosbridge-server
+sudo apt-get install ros-humble-rosbridge-server
+# Clone this repository with submodules
 git clone --recursive https://github.com/107-systems/l3xz_frontend
 # Launch rosbridge socket server
-ros2 launch rosbridge_server rosbridge_websocket.launch &
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml &
 # Start a http server in the webgui folder
 cd webgui
 python3 -m http.server 8080
