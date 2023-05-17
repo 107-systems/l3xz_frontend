@@ -1,0 +1,45 @@
+name: ros2
+
+on:
+  push:
+    paths:
+      - ".github/workflows/ros2.yml"
+      - "l3xz_frontend/**"
+      - "launch/**"
+      - "package.xml"
+  pull_request:
+    paths:
+      - ".github/workflows/ros2.yml"
+      - "l3xz_frontend/**"
+      - "launch/**"
+      - "package.xml"
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    name: Build on ros2 ${{ matrix.ros_distro }}
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        ros_distro: [ humble ]
+
+    steps:   
+    - uses: ros-tooling/setup-ros@v0.6
+      with:
+        required-ros-distributions: ${{ matrix.ros_distro }}
+
+    - uses: actions/checkout@v3
+      with:
+        path: 'ros2_ws/src/l3xz_frontend'
+        submodules: true
+        fetch-depth: 1
+
+    - name: colcon build
+      run: |
+        cd ${{github.workspace}}/ros2_ws/src/l3xz_openmv_camera
+        git submodule update --init --progress --depth 1
+        source /opt/ros/${{ matrix.ros_distro }}/setup.bash
+        cd ${{github.workspace}}/ros2_ws
+        PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources colcon build --packages-select l3xz_openmv_camera
