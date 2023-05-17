@@ -3,7 +3,7 @@
 <package format="3">
   <name>l3xz_frontent</name>
   <version>1.0.0</version>
-  <description>ROS2 node for WebGUI visualisation of L3X-Z</description>
+  <description>ROS2 node for WebGUI visualization of L3X-Z</description>
   <maintainer email="jonaswuehrmaintainer@gmail.com">Jonas Wühr</maintainer>
   <license>MIT</license>
 
