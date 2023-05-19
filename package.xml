@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>l3xz_frontent</name>
+  <name>l3xz_frontend</name>
   <version>1.0.0</version>
   <description>ROS2 node for WebGUI visualization of L3X-Z</description>
   <maintainer email="jonaswuehrmaintainer@gmail.com">Jonas Wühr</maintainer>
   <license>MIT</license>
 
   <url type="website">https://107-systems.org/</url>
-  <url type="repository">https://github.com/107-systems/l3xz_frontent</url>
+  <url type="repository">https://github.com/107-systems/l3xz_frontend</url>
 
   <exec_depend>rclpy</exec_depend>
 
