@@ -1,6 +1,7 @@
 <a href="https://107-systems.org/"><img align="right" src="https://raw.githubusercontent.com/107-systems/.github/main/logo/107-systems.png" width="15%"></a>
 :floppy_disk: `l3xz_frontend`
 =============================
+[![Build Status](https://github.com/107-systems/l3xz_frontend/actions/workflows/ros2.yml/badge.svg)](https://github.com/107-systems/l3xz_frontend/actions/workflows/ros2.yml)
 [![Spell Check status](https://github.com/107-systems/l3xz_frontend/actions/workflows/spell-check.yml/badge.svg)](https://github.com/107-systems/l3xz_frontend/actions/workflows/spell-check.yml)
 
 Web based frontend for the [L3X-Z hexapod robot](https://github.com/107-systems/l3xz).
@@ -9,21 +10,25 @@ Web based frontend for the [L3X-Z hexapod robot](https://github.com/107-systems/
   <a href="https://github.com/107-systems/l3xz"><img src="https://raw.githubusercontent.com/107-systems/.github/main/logo/l3xz-logo-memento-mori-github.png" width="40%"></a>
 </p>
 
-# Setup
+**Note**: To run the frontend you need a http-Server, e.g. the one included in Python. Furthermore the [rosbridge_server](http://wiki.ros.org/rosbridge_server) package is required to communicate with the ROS-system on the robot.
 
-To run the frontend You need a http-Server, e. g. the one included in Python. Also the [rosbridge_server](http://wiki.ros.org/rosbridge_server) package is required to communicate with the ROS-system on the robot.
-
-~~~bash
-# Install ROS package rosbridge-server
-sudo apt-get install ros-humble-rosbridge-server
-# Clone this repository with submodules
+#### How-to-build
+##### Build via `colcon`
+```bash
+cd $COLCON_WS/src
 git clone --recursive https://github.com/107-systems/l3xz_frontend
-# Launch rosbridge socket server
+cd $COLCON_WS
+source /opt/ros/humble/setup.bash
+PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources colcon build --packages-select l3xz_frontend
+```
+
+#### How-to-run
+```bash
+cd $COLCON_WS
+. install/setup.bash
 ros2 launch rosbridge_server rosbridge_websocket_launch.xml &
-# Start a http server in the webgui folder
-cd webgui
-python3 -m http.server 8080
-~~~
+ros2 run l3xz_frontend l3xz_frontend
+```
 
 # Pages
 ## L3X-Z dashboard
