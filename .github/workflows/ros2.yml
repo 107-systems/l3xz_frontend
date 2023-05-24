@@ -30,6 +30,10 @@ jobs:
       with:
         required-ros-distributions: ${{ matrix.ros_distro }}
 
+    - name: Prepare ROS2 workspace
+      run: |
+        mkdir -p ${{github.workspace}}/ros2_ws/src
+
     - uses: actions/checkout@v3
       with:
         path: 'ros2_ws/src/l3xz_frontend'
@@ -38,8 +42,6 @@ jobs:
 
     - name: colcon build
       run: |
-        cd ${{github.workspace}}/ros2_ws/src/l3xz_openmv_camera
-        git submodule update --init --progress --depth 1
         source /opt/ros/${{ matrix.ros_distro }}/setup.bash
         cd ${{github.workspace}}/ros2_ws
         PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources colcon build --packages-select l3xz_frontend
