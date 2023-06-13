@@ -13,11 +13,11 @@ var vis5;
 var topicsManager;
 
 // Controllers
-var joyLeg;
-var joyHead;
-var cmdLeg;
-var cmdHead;
-var controlEnable;
+//var joyLeg;
+//var joyHead;
+//var cmdLeg;
+//var cmdHead;
+//var controlEnable;
 
 // Adapt autoscale function
 function autoscaleElrob() {
@@ -89,20 +89,20 @@ function initElrob() {
                 externalStrokeColor: "#D40045",
                 autoReturnToCenter: false,
             }
-            joyLeg = new JoyStick('legstick', joystickParameters);
-            joystickParameters.title = "head";
-            joyHead = new JoyStick('headstick', joystickParameters);
+	    //joyLeg = new JoyStick('legstick', joystickParameters);
+            //joystickParameters.title = "head";
+            //joyHead = new JoyStick('headstick', joystickParameters);
 
-            cmdLeg = new ROSLIB.Topic({
-                ros: ros,
-                name: '/l3xz/joy_leg',
-                messageType: 'sensor_msgs/Joy'
-            });
-            cmdHead = new ROSLIB.Topic({
-                ros: ros,
-                name: '/l3xz/joy_head',
-                messageType: 'sensor_msgs/Joy'
-            });
+            //cmdLeg = new ROSLIB.Topic({
+            //    ros: ros,
+            //    name: '/l3xz/joy_leg',
+            //    messageType: 'sensor_msgs/Joy'
+            //});
+            //cmdHead = new ROSLIB.Topic({
+            //    ros: ros,
+            //    name: '/l3xz/joy_head',
+            //    messageType: 'sensor_msgs/Joy'
+            //});
 
             topicsManager = new TopicsManager(false);
             vis1 = new Visualizer("div_screen1", "canvas_screen1");
@@ -114,9 +114,10 @@ function initElrob() {
             vis2.insertMessage("/l3xz/openmv_rgb/image_color_compressed");
             vis3.insertMessage("/camera/depth/image_rect_raw/compressed");
             vis4.insertMessage("/camera/color/image_raw/compressed");
-            vis5.insertMessage("/rtabmap/grid_map");
-            vis5.insertMessage("/odom_slam");
-
+            //vis5.insertMessage("/rtabmap/grid_map");
+            // vis5.insertMessage("/odom_slam");
+            vis5.insertMessage("/l3xz/openmv_rgb/image_color_compressed");
+            
             topicsManager = new TopicsManager(false);
             topicsManager.appendVisualizer(vis1);
             topicsManager.appendVisualizer(vis2);
@@ -139,17 +140,17 @@ function initElrob() {
                     vis3.render();
                     vis4.render();
                     vis5.render();
-
-                    if (controlEnable) {
-                        cmdLeg.publish(new ROSLIB.Message({
-                            axes: [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
-                            buttons: []
-                        }));
-                        cmdHead.publish(new ROSLIB.Message({
-                            axes: [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
-                            buttons: []
-                        }));
-                    }
+                    //controlEnable = false;
+                    //if (controlEnable) {
+                    //    cmdLeg.publish(new ROSLIB.Message({
+                    //        axes: [parseFloat(joyLeg.GetX() * 0.01), parseFloat(joyLeg.GetY() * 0.01)],
+                    //        buttons: []
+                    //    }));
+                    //    cmdHead.publish(new ROSLIB.Message({
+                    //        axes: [parseFloat(joyHead.GetX() * 0.01), parseFloat(joyHead.GetY() * 0.01)],
+                    //        buttons: []
+                    //    }));
+                    //}
                 }, 100);
 
             }, 2000);
